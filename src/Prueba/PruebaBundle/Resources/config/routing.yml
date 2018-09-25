@@ -1,0 +1,3 @@
+prueba_prueba_homepage:
+    path:     /
+    defaults: { _controller: PruebaPruebaBundle:Default:index }
