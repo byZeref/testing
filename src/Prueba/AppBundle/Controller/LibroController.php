@@ -10,8 +10,6 @@ class LibroController extends Controller
 {
     public function indexAction()
     {
-//        $manager = $this->getDoctrine()->getManager();
-//        $books = $manager->getRepository(Libro::class);
         $books = $this->getDoctrine()->getRepository(Libro::class)->findAll();
 
         return $this->render('PruebaAppBundle:Libro:index.html.twig', ['books' => $books]);

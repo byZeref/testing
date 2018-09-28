@@ -4,7 +4,7 @@
     <h2>Libros:</h2>
     <ul>
         {% for book in books %}
-            <li> {{ book.titulo }} -by- {{ book.nombAutor }}</li>
+            <li> {{ book.id }} - {{ book.titulo }} -by- {{ book.nombAutor }}</li>
         {% endfor %}
     </ul>
 

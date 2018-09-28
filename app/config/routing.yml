@@ -5,3 +5,7 @@ prueba_prueba:
 prueba_app:
     resource: "@PruebaAppBundle/Resources/config/routing.yml"
     prefix:   /app
+
+prueba_app_libro:
+    resource: "@PruebaAppBundle/Resources/config/routing_libro.yml"
+    prefix:   /app/libro
