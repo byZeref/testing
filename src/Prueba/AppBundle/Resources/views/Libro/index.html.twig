@@ -1,0 +1,11 @@
+{% block body %}
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
+    <img src="{{ asset('favicon.ico') }}" alt="">
+    <h2>Libros:</h2>
+    <ul>
+        {% for book in books %}
+            <li> {{ book.nombAutor }} </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

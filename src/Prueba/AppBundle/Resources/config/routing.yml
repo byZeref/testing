@@ -1,3 +1,28 @@
 prueba_app_homepage:
     path:     /
     defaults: { _controller: PruebaAppBundle:Default:index }
+
+prueba_app_name:
+    path:     /name/{myname}
+    defaults: { _controller: PruebaAppBundle:Default:name }
+
+prueba_app_red:
+    path:     /redir
+    defaults: { _controller: PruebaAppBundle:Default:redir }
+
+prueba_app_libro:
+    path:     /libro
+    defaults: { _controller: PruebaAppBundle:Libro:index }
+
+prueba_app_libro_create:
+    path:     /libro/create
+    defaults: { _controller: PruebaAppBundle:Libro:create }
+
+prueba_app_libro_upd:
+    path:     /libro/update/{id}
+    defaults: { _controller: PruebaAppBundle:Libro:update }
+
+prueba_app_libro_delete:
+    path:     /libro/delete/{id}
+    defaults: { _controller: PruebaAppBundle:Libro:delete }
+
