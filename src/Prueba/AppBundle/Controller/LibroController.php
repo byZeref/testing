@@ -37,7 +37,7 @@ class LibroController extends Controller
         $book->setNombAutor('Bob Lee Swagger');
         $manager->flush();
 
-        return $this->indexAction();
+        return $this->redirect($this->generateUrl('libro_home'));
     }
 
     public function deleteAction($id)
@@ -48,7 +48,7 @@ class LibroController extends Controller
         $manager->remove($book);
         $manager->flush();
 
-        return $this->indexAction();
+        return $this->redirect($this->generateUrl('libro_home'));
     }
 
 }
