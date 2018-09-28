@@ -21,9 +21,9 @@ class LibroController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $book = new Libro();
-        $book->setTitulo('Shooter');
+        $book->setTitulo('Queen of the South');
         $book->setGenero('Accion');
-        $book->setNombAutor('Bob Lee Swagger');
+        $book->setNombAutor('Teresa Mendoza');
 
         $manager->persist($book);
         $manager->flush();
