@@ -3,7 +3,9 @@
 namespace Prueba\AppBundle\Controller;
 
 use Prueba\AppBundle\Entity\Libro;
+use Prueba\AppBundle\Form\LibroType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class LibroController extends Controller
@@ -15,18 +17,24 @@ class LibroController extends Controller
         return $this->render('PruebaAppBundle:Libro:index.html.twig', ['books' => $books]);
     }
 
-    public function createAction()
+    public function createAction(Request $request)
     {
-        $manager = $this->getDoctrine()->getManager();
         $book = new Libro();
-        $book->setTitulo('Queen of the South');
-        $book->setGenero('Accion');
-        $book->setNombAutor('Teresa Mendoza');
+        $form = $this->createForm(LibroType::class, $book);
 
-        $manager->persist($book);
-        $manager->flush();
+        $form->handleRequest($request);
 
-        return new Response('Se agrego un nuevo libro con titulo: '.$book->getTitulo());
+        if($form->isSubmitted() && $form->isValid()){
+            $book = $form->getData();
+
+            $man = $this->getDoctrine()->getManager();
+            $man->persist($book);
+            $man->flush();
+
+            return $this->redirectToRoute('libro_home');
+        }
+
+        return $this->render('PruebaAppBundle:Libro:create.html.twig', ['form' => $form->createView()]);
     }
 
     public function updateAction($id)
