@@ -57,6 +57,12 @@ class Libro
     private $nombAutor;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Editorial", inversedBy="libros")
+     * @ORM\JoinColumn(name="editorial_id", referencedColumnName="id")
+     */
+    private $editorial;
+
+    /**
      * Get id
      *
      * @return integer
@@ -185,5 +191,28 @@ class Libro
     {
         return $this->nombAutor;
     }
-}
 
+    /**
+     * Set editorial
+     *
+     * @param \Prueba\AppBundle\Entity\Editorial $editorial
+     *
+     * @return Libro
+     */
+    public function setEditorial(\Prueba\AppBundle\Entity\Editorial $editorial = null)
+    {
+        $this->editorial = $editorial;
+    
+        return $this;
+    }
+
+    /**
+     * Get editorial
+     *
+     * @return \Prueba\AppBundle\Entity\Editorial
+     */
+    public function getEditorial()
+    {
+        return $this->editorial;
+    }
+}
