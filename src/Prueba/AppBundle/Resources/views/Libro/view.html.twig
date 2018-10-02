@@ -1,0 +1,14 @@
+<link rel="icon" href="{{ asset('favicon.ico') }}">
+<img src="{{ asset('favicon.ico') }}" alt="">
+<h2>Libro: {{ book.titulo }}</h2>
+
+{% block body %}
+    ID: {{ book.id }} <br>
+    Titulo: {{ book.titulo }} <br>
+    Genero: {{ book.genero }} <br>
+    {#Fecha Lanz: {{ book.fechaLanzamiento }} <br>#}
+    Unidades: {{ book.cantUnidades }} <br>
+    Autor: {{ book.nombAutor }} <br>
+    <br>
+    <a href="../index" > go home </a>
+{% endblock %}

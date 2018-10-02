@@ -37,15 +37,28 @@ class LibroController extends Controller
         return $this->render('PruebaAppBundle:Libro:create.html.twig', ['form' => $form->createView()]);
     }
 
-    public function updateAction($id)
+    public function updateAction($id, Request $request)
     {
-        $manager = $this->getDoctrine()->getManager();
-        $book = $manager->getRepository(Libro::class)->find($id);
+        $book = $this->getDoctrine()->getRepository(Libro::class)->find($id);
+        $form = $this->createForm(LibroType::class, $book);
+        $form->handleRequest($request);
 
-        $book->setNombAutor('Bob Lee Swagger');
-        $manager->flush();
+        if ($form->isSubmitted() && $form->isValid()){
+            $book = $form->getData();
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($book);
+            $manager->flush();
 
-        return $this->redirect($this->generateUrl('libro_home'));
+            return $this->redirect($this->generateUrl('libro_home'));
+        }
+        return $this->render('PruebaAppBundle:Libro:update.html.twig', ['form' => $form->createView()]);
+    }
+
+    public function viewAction($id, Request $request)
+    {
+        $book = $this->getDoctrine()->getRepository(Libro::class)->find($id);
+
+        return $this->render('PruebaAppBundle:Libro:view.html.twig', ['book' => $book]);
     }
 
     public function deleteAction($id)

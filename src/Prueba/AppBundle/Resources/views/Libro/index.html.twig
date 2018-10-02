@@ -1,11 +1,17 @@
+<link rel="icon" href="{{ asset('favicon.ico') }}">
+<img src="{{ asset('favicon.ico') }}" alt="">
+<h2>Libros:</h2>
+
 {% block body %}
-    <link rel="icon" href="{{ asset('favicon.ico') }}">
-    <img src="{{ asset('favicon.ico') }}" alt="">
-    <h2>Libros:</h2>
+    <a href="create" > crear libro</a>
     <ul>
         {% for book in books %}
             <li> {{ book.id }} - {{ book.titulo }} -by- {{ book.nombAutor }}</li>
-            {#<a href="http://localhost/testing.cusobucuba/web/app_dev.php/app/libro/update/{{ book.id }}" > upd </a>#}
+            <a href="view/{{ book.id }}" > ver </a>
+            |
+            <a href="update/{{ book.id }}" > upd </a>
+            |
+            <a href="delete/{{ book.id }}" > borrar </a>
         {% endfor %}
     </ul>
 

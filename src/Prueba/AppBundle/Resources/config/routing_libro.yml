@@ -1,5 +1,8 @@
+#libro_home:
+#    path:     /
+#    defaults: { _controller: PruebaAppBundle:Libro:index }
 libro_home:
-    path:     /
+    path:     /index
     defaults: { _controller: PruebaAppBundle:Libro:index }
 
 libro_create:
@@ -14,3 +17,6 @@ libro_delete:
     path:     /delete/{id}
     defaults: { _controller: PruebaAppBundle:Libro:delete }
 
+libro_view:
+    path:     /view/{id}
+    defaults: { _controller: PruebaAppBundle:Libro:view }
