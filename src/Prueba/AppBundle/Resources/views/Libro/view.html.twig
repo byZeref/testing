@@ -1,14 +1,18 @@
-<link rel="icon" href="{{ asset('favicon.ico') }}">
-<img src="{{ asset('favicon.ico') }}" alt="">
-<h2>Libro: {{ book.titulo }}</h2>
+{% extends "base.html.twig" %}
 
-{% block body %}
+{% block title %} Ver Libro {% endblock %}
+
+
+{% block content %}
+    <h2>Libro: {{ book.titulo }}</h2>
+
     ID: {{ book.id }} <br>
     Titulo: {{ book.titulo }} <br>
     Genero: {{ book.genero }} <br>
-    {#Fecha Lanz: {{ book.fechaLanzamiento }} <br>#}
+    Fecha Lanz: {{ book.fechaLanzamiento.date }} <br>
     Unidades: {{ book.cantUnidades }} <br>
     Autor: {{ book.nombAutor }} <br>
     <br>
-    <a href="../index" > go home </a>
+    <a class="btn btn-default" href="{{ path('libro_home') }}" > Go Home </a>
+    <br><br>
 {% endblock %}

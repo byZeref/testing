@@ -1,5 +1,9 @@
-<h2>Modificar Libro</h2>
+{% extends "base.html.twig" %}
 
-{% block body %}
+{% block title %} Modificar Libro {% endblock %}
+
+{% block content %}
+    <h2>Modificar Libro</h2>
     {{ form(form) }}
+    <br>
 {% endblock %}

@@ -19,9 +19,9 @@ class LibroType extends AbstractType
     {
         $builder->add('titulo')
                 ->add('genero')
-                ->add('fechaLanzamiento', DateType::class, ['label' => 'Fecha de Lanzamiento'])
-                ->add('cantUnidades', IntegerType::class, ['label' => 'Unidades'])
-                ->add('nombAutor', TextType::class, ['label' => 'Autor'])
+                ->add('fechaLanzamiento', null, ['label' => 'Fecha de Lanzamiento'])
+                ->add('cantUnidades', null, ['label' => 'Unidades'])
+                ->add('nombAutor', null, ['label' => 'Autor'])
                 ->add('Aceptar', SubmitType::class);
     }/**
      * {@inheritdoc}
