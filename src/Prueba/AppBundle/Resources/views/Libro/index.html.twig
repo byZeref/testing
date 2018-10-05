@@ -19,7 +19,7 @@
         Esta es la pagina de libros.
     </p>
     {# se puede usar path() o url() #}
-    <a class="btn btn-default" href="{{ path('libro_create') }}"> Crear Libro </a> <br><br>
+    <a class="btn btn-primary" href="{{ path('libro_create') }}"><i class="fa fa-book"></i> Crear Libro </a> <br><br>
     <ul>
         {% for book in books %}
             <li> <p class="important"> {{ book.id }} - {{ book.titulo }} -by- {{ book.nombAutor }} </p></li>

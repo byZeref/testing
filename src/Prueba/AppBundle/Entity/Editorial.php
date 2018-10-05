@@ -107,4 +107,9 @@ class Editorial
     {
         return $this->libros;
     }
+
+    public function __toString()
+    {
+        return $this->nombre;
+    }
 }

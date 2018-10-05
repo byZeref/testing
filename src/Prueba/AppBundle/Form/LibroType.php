@@ -22,6 +22,7 @@ class LibroType extends AbstractType
                 ->add('fechaLanzamiento', null, ['label' => 'Fecha de Lanzamiento'])
                 ->add('cantUnidades', null, ['label' => 'Unidades'])
                 ->add('nombAutor', null, ['label' => 'Autor'])
+                ->add('editorial')
                 ->add('Aceptar', SubmitType::class);
     }/**
      * {@inheritdoc}
