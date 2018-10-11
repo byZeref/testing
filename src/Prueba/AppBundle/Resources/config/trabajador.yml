@@ -1,0 +1,24 @@
+trabajador_index:
+    path:     /
+    defaults: { _controller: "PruebaAppBundle:Trabajador:index" }
+    methods:  GET
+
+trabajador_show:
+    path:     /{id}/show
+    defaults: { _controller: "PruebaAppBundle:Trabajador:show" }
+    methods:  GET
+
+trabajador_new:
+    path:     /new
+    defaults: { _controller: "PruebaAppBundle:Trabajador:new" }
+    methods:  [GET, POST]
+
+trabajador_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PruebaAppBundle:Trabajador:edit" }
+    methods:  [GET, POST]
+
+trabajador_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PruebaAppBundle:Trabajador:delete" }
+    methods:  DELETE

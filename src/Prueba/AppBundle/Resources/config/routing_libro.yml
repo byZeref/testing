@@ -2,7 +2,7 @@
 #    path:     /
 #    defaults: { _controller: PruebaAppBundle:Libro:index }
 libro_home:
-    path:     /index
+    path:     /
     defaults: { _controller: PruebaAppBundle:Libro:index }
 
 libro_create:

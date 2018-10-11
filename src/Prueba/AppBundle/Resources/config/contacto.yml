@@ -1,0 +1,24 @@
+contacto_index:
+    path:     /
+    defaults: { _controller: "PruebaAppBundle:Contacto:index" }
+    methods:  GET
+
+contacto_show:
+    path:     /{id}/show
+    defaults: { _controller: "PruebaAppBundle:Contacto:show" }
+    methods:  GET
+
+contacto_new:
+    path:     /new
+    defaults: { _controller: "PruebaAppBundle:Contacto:new" }
+    methods:  [GET, POST]
+
+contacto_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PruebaAppBundle:Contacto:edit" }
+    methods:  [GET, POST]
+
+contacto_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PruebaAppBundle:Contacto:delete" }
+    methods:  DELETE

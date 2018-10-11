@@ -1,0 +1,24 @@
+tipocontacto_index:
+    path:     /
+    defaults: { _controller: "PruebaAppBundle:TipoContacto:index" }
+    methods:  GET
+
+tipocontacto_show:
+    path:     /{id}/show
+    defaults: { _controller: "PruebaAppBundle:TipoContacto:show" }
+    methods:  GET
+
+tipocontacto_new:
+    path:     /new
+    defaults: { _controller: "PruebaAppBundle:TipoContacto:new" }
+    methods:  [GET, POST]
+
+tipocontacto_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PruebaAppBundle:TipoContacto:edit" }
+    methods:  [GET, POST]
+
+tipocontacto_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PruebaAppBundle:TipoContacto:delete" }
+    methods:  DELETE

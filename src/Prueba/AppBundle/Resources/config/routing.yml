@@ -9,20 +9,27 @@ prueba_app_name:
 prueba_app_red:
     path:     /redir
     defaults: { _controller: PruebaAppBundle:Default:redir }
-#
-#prueba_app_libro:
-#    path:     /libro
-#    defaults: { _controller: PruebaAppBundle:Libro:index }
-#
-#prueba_app_libro_create:
-#    path:     /libro/create
-#    defaults: { _controller: PruebaAppBundle:Libro:create }
-#
-#prueba_app_libro_upd:
-#    path:     /libro/update/{id}
-#    defaults: { _controller: PruebaAppBundle:Libro:update }
-#
-#prueba_app_libro_delete:
-#    path:     /libro/delete/{id}
-#    defaults: { _controller: PruebaAppBundle:Libro:delete }
-#
+
+prueba_app_libro:
+    resource: "@PruebaAppBundle/Resources/config/routing_libro.yml"
+    prefix:   /libro
+
+prueba_app_equipo:
+    resource: "@PruebaAppBundle/Resources/config/equipo.yml"
+    prefix:   /equipo
+
+prueba_app_entrenador:
+    resource: "@PruebaAppBundle/Resources/config/entrenador.yml"
+    prefix:   /entrenador
+
+prueba_app_trabajador:
+    resource: "@PruebaAppBundle/Resources/config/trabajador.yml"
+    prefix:   /trabajador
+
+prueba_app_contacto:
+    resource: "@PruebaAppBundle/Resources/config/contacto.yml"
+    prefix:   /contacto
+
+prueba_app_tipocontacto:
+    resource: "@PruebaAppBundle/Resources/config/tipocontacto.yml"
+    prefix:   /tipocontacto

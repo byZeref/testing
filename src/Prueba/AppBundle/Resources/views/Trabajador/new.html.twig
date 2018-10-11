@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Trabajador creation</h1>
+
+    <div class="col-md-4">
+        {{ form_start(form) }}
+            {#{{ form_widget(form) }}#}
+            {{ form_row(form.ci) }}
+            {{ form_row(form.nombre) }}
+            {{ form_row(form.apellidos) }}
+        <h3>Contactos</h3>
+        {#{{ form_row(form.contactos) }}#}
+        {% for contacto in form.contactos %}
+            {{ form_row(contacto.contacto) }}
+            {{ form_row(contacto.valor) }}
+        {% endfor %}
+
+        {#<input type="submit" value="Create" class="btn btn-primary btn-block" />#}
+        {{ form_end(form) }}
+        <a class="btn btn-default btn-block" href="{{ path('trabajador_index') }}">Back to the list</a>
+    </div>
+{% endblock %}

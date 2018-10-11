@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Trabajadors list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ci</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for trabajador in trabajadors %}
+            <tr>
+                <td><a href="{{ path('trabajador_show', { 'id': trabajador.id }) }}">{{ trabajador.id }}</a></td>
+                <td>{{ trabajador.ci }}</td>
+                <td>{{ trabajador.nombre }}</td>
+                <td>{{ trabajador.apellidos }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('trabajador_show', { 'id': trabajador.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('trabajador_edit', { 'id': trabajador.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('trabajador_new') }}">Create a new trabajador</a>
+        </li>
+    </ul>
+{% endblock %}
