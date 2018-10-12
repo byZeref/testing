@@ -36,13 +36,19 @@ class TrabajadorController extends Controller
     {
         $trabajador = new Trabajador();
         $trabajador->getContactos()->add(new Contacto());
-//        print_r($trabajador);die();
+//        $cont1 = new Contacto();
+//        $cont2 = new Contacto();
+//        $trabajador->getContactos()->add($cont1);
+//        $trabajador->getContactos()->add($cont2);
 
         $form = $this->createForm('Prueba\AppBundle\Form\TrabajadorType', $trabajador);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-//            var_dump($trabajador->getContactos()->toArray());die();
+            foreach ($trabajador->getContactos() as $contacto){
+                $contacto->setTrabajador($trabajador);
+            }
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($trabajador);
             $em->flush();
