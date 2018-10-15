@@ -1,43 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Trabajadors list</h1>
+    <h1>Trabajadores</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Ci</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for trabajador in trabajadors %}
-            <tr>
-                <td><a href="{{ path('trabajador_show', { 'id': trabajador.id }) }}">{{ trabajador.id }}</a></td>
-                <td>{{ trabajador.ci }}</td>
-                <td>{{ trabajador.nombre }}</td>
-                <td>{{ trabajador.apellidos }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('trabajador_show', { 'id': trabajador.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('trabajador_edit', { 'id': trabajador.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="col-md-7">
+        <table class="table">
+            <thead>
+                <tr class="success">
+                    <th>#</th>
+                    <th>CI</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% set c = 1 %}
+            {% for trabajador in trabajadors %}
+                <tr>
+                    {#<td><a href="{{ path('trabajador_show', { 'id': trabajador.id }) }}">{{ trabajador.id }}</a></td>#}
+                    <td>{{ c }}</a></td>
+                    <td>{{ trabajador.ci }}</td>
+                    <td>{{ trabajador.nombre }}</td>
+                    <td>{{ trabajador.apellidos }}</td>
+                    <td>
+                        <a href="{{ path('trabajador_show', { 'id': trabajador.id }) }}"><i class="fa fa-eye"></i></a>
+                        <a href="{{ path('trabajador_edit', { 'id': trabajador.id }) }}"><i class="fa fa-pen"></i></a>
+                    </td>
+                </tr>
+                {% set c = c+1 %}
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('trabajador_new') }}" class="btn btn-primary btn-block">Crear un nuevo trabajador</a>
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('trabajador_new') }}">Create a new trabajador</a>
-        </li>
-    </ul>
+
 {% endblock %}

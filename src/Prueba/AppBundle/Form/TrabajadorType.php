@@ -25,7 +25,7 @@ class TrabajadorType extends AbstractType
                     'allow_add' => true,
                     'allow_delete' => true,
                 ])
-                ->add('Crear', SubmitType::class, [
+                ->add('Aceptar', SubmitType::class, [
                     'attr' => ['class' => 'btn btn-primary btn-block']
                 ]);
     }/**

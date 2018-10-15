@@ -11,15 +11,4 @@ class DefaultController extends Controller
         return $this->render('PruebaAppBundle:Default:index.html.twig');
     }
 
-    public function nameAction($myname = 'default')
-    {
-        return $this->render('PruebaAppBundle:Default:name.html.twig', ['myname' => $myname]);
-    }
-
-    public function redirAction()
-    {
-        return $this->redirectToRoute('prueba_app_name', ['myname' => 'red']);
-    }
-
-
 }

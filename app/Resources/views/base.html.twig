@@ -13,13 +13,11 @@
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <a href="{{ path('libro_home') }}" class="navbar-brand"><i class="fa fa-home"></i> Mi Pagina</a>
+                <a href="{{ path('trabajador_index') }}" class="navbar-brand"><i class="fa fa-home"></i> Mi Pagina</a>
             </div>
             <ul class="nav navbar-nav">
-                {#<li class="active"><a href="{{ path('libro_home') }}">Libros</a></li>#}
-                <li ><a href="{{ path('libro_home') }}"> <i class="fa fa-book-open"></i> Libros</a></li>
-                <li ><a href="{{ path('equipo_index') }}"><i class="fa fa-futbol"></i> Equipos</a></li>
-                <li ><a href="{{ path('entrenador_index') }}"><i class="fa fa-user"></i> Entrenadores</a></li>
+                {#<li class="active">#}
+                <li ><a href="{{ path('trabajador_index') }}"><i class="fa fa-user"></i> Trabajadores</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -33,14 +31,20 @@
             </ul>
         </div>
     </nav>
-    <div id="content" class="container">{% block body %}{% endblock %}</div>
+    <div id="content" class="container">
+        {% block body %}{% endblock %}
+    </div>
     {#<div id="footer" class="panel-footer">#}
         {#{% block footer %}#}
         {#&copy; Copyright 2018#}
         {#{% endblock %}#}
     {#</div>#}
-    <script src="{{ asset('bootstrap-3.3.7-dist/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>
+
+    {% block script %}
+        <script src="{{ asset('bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ asset('bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+
 </body>
 
 </html>

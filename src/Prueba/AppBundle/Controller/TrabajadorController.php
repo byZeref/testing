@@ -36,10 +36,6 @@ class TrabajadorController extends Controller
     {
         $trabajador = new Trabajador();
         $trabajador->getContactos()->add(new Contacto());
-//        $cont1 = new Contacto();
-//        $cont2 = new Contacto();
-//        $trabajador->getContactos()->add($cont1);
-//        $trabajador->getContactos()->add($cont2);
 
         $form = $this->createForm('Prueba\AppBundle\Form\TrabajadorType', $trabajador);
         $form->handleRequest($request);
@@ -89,7 +85,7 @@ class TrabajadorController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('trabajador_edit', array('id' => $trabajador->getId()));
+            return $this->redirectToRoute('trabajador_index', array('id' => $trabajador->getId()));
         }
 
         return $this->render('PruebaAppBundle:Trabajador:edit.html.twig', array(

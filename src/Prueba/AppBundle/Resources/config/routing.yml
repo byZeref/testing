@@ -2,26 +2,6 @@ prueba_app_homepage:
     path:     /
     defaults: { _controller: PruebaAppBundle:Default:index }
 
-prueba_app_name:
-    path:     /name/{myname}
-    defaults: { _controller: PruebaAppBundle:Default:name }
-
-prueba_app_red:
-    path:     /redir
-    defaults: { _controller: PruebaAppBundle:Default:redir }
-
-prueba_app_libro:
-    resource: "@PruebaAppBundle/Resources/config/routing_libro.yml"
-    prefix:   /libro
-
-prueba_app_equipo:
-    resource: "@PruebaAppBundle/Resources/config/equipo.yml"
-    prefix:   /equipo
-
-prueba_app_entrenador:
-    resource: "@PruebaAppBundle/Resources/config/entrenador.yml"
-    prefix:   /entrenador
-
 prueba_app_trabajador:
     resource: "@PruebaAppBundle/Resources/config/trabajador.yml"
     prefix:   /trabajador
