@@ -2,23 +2,21 @@
 
 namespace Prueba\AppBundle\DataFixtures;
 
-use Prueba\AppBundle\Entity\Equipo;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Prueba\AppBundle\Entity\TipoContacto;
 
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $eq = new Equipo();
-        $eq->setNombre('Barcelona');
-        $eq->setDivision(random_int(1,3));
-        $manager->persist($eq);
+        $tipo = new TipoContacto();
+        $tipo->setTipo('telefono');
+        $manager->persist($tipo);
+        $tipo2 = new TipoContacto();
+        $tipo2->setTipo('correo');
+        $manager->persist($tipo2);
 
-//        $eq->setNombre('Barcelona');
-//        $eq->setDivision(random_int(1,3));
-//        $manager->persist($eq);
-//
         $manager->flush();
     }
 }
