@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Registros list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fechainicial</th>
+                <th>Fechafinal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for registro in registros %}
+            <tr>
+                <td><a href="{{ path('registro_show', { 'id': registro.id }) }}">{{ registro.id }}</a></td>
+                <td>{% if registro.fechaInicial %}{{ registro.fechaInicial|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if registro.fechaFinal %}{{ registro.fechaFinal|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('registro_show', { 'id': registro.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('registro_edit', { 'id': registro.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('registro_new') }}">Create a new registro</a>
+        </li>
+    </ul>
+{% endblock %}

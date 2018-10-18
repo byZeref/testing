@@ -1,0 +1,24 @@
+registro_index:
+    path:     /
+    defaults: { _controller: "PruebaAppBundle:Registro:index" }
+    methods:  GET
+
+registro_show:
+    path:     /{id}/show
+    defaults: { _controller: "PruebaAppBundle:Registro:show" }
+    methods:  GET
+
+registro_new:
+    path:     /new
+    defaults: { _controller: "PruebaAppBundle:Registro:new" }
+    methods:  [GET, POST]
+
+registro_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PruebaAppBundle:Registro:edit" }
+    methods:  [GET, POST]
+
+registro_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PruebaAppBundle:Registro:delete" }
+    methods:  DELETE

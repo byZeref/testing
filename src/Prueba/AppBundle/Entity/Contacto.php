@@ -27,7 +27,7 @@ class Contacto
     private $trabajador;
 
     /**
-     * @ORM\ManyToOne(targetEntity="TipoContacto", inversedBy="trabajadores", cascade={"all"})
+     * @ORM\ManyToOne(targetEntity="TipoContacto", inversedBy="trabajadores")
      */
     private $contacto;
 

@@ -1,45 +1,52 @@
 {% extends 'base.html.twig' %}
 
+{% block title %} Trabajadores {% endblock %}
+{% block li_trabajadores %}class="active"{% endblock %}
 {% block body %}
+
     <h1>Trabajador</h1>
 
     <div class="col-md-6">
+        {% for message in app.flashes('creado') %}
+            <div class="flash-notice alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
         <table class="table">
             <tbody>
-            {#<tr>#}
-                {#<th>ID</th>#}
-                {#<td>{{ trabajador.id }}</td>#}
-            {#</tr>#}
-            <tr>
-                <th>CI</th>
-                <td>{{ trabajador.ci }}</td>
-            </tr>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ trabajador.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Apellidos</th>
-                <td>{{ trabajador.apellidos }}</td>
-            </tr>
-            {% for cont in trabajador.contactos %}
-            <tr>
-                <th>{% if(cont.contacto == 'telefono') %} {{ 'Teléfono' }}
-                    {% elseif (cont.contacto == 'correo') %} {{ 'Correo' }}
-                    {% endif %}
-                </th>
-                <td>{{ cont.valor }}</td>
-            </tr>
-            {% endfor %}
+                <tr>
+                    <th>CI</th>
+                    <td>{{ trabajador.ci }}</td>
+                </tr>
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{ trabajador.nombre }}</td>
+                </tr>
+                <tr>
+                    <th>Apellidos</th>
+                    <td>{{ trabajador.apellidos }}</td>
+                </tr>
+                <tr>
+                    <th>Estado</th>
+                    <td>{{ trabajador.estado[0].estado }}</td>
+                </tr>
+                {% for cont in trabajador.contactos %}
+                    <tr>
+                        <th>{{ cont.contacto }}</th>
+                        <td>{{ cont.valor }}</td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
+        {% if trabajador.estado[0].estado.valorEstado != 'Contratado' %}
+            <a href="{{ path('trabajador_edit', { 'id': trabajador.id }) }}" class="btn btn-primary btn-block">Editar</a>
+        {% endif %}
 
-        <a href="{{ path('trabajador_edit', { 'id': trabajador.id }) }}" class="btn btn-primary btn-block">Editar</a>
         <a href="{{ path('trabajador_index') }}" class="btn btn-default btn-block">Regresar a la lista</a>
         <br>
-        {{ form_start(delete_form) }}
-        <input type="submit" value="Eliminar este trabajador" class="btn btn-danger btn-block">
-        {{ form_end(delete_form) }}
+        <a href="{{ path('trabajador_delete', { 'id': trabajador.id }) }}" class="btn btn-danger btn-block">Eliminar este trabajador</a>
+
     </div>
 
 

@@ -21,4 +21,9 @@ trabajador_edit:
 trabajador_delete:
     path:     /{id}/delete
     defaults: { _controller: "PruebaAppBundle:Trabajador:delete" }
-    methods:  DELETE
+    methods:  [GET, POST]
+
+trabajador_contratar:
+    path:     /{id}/contratar
+    defaults: { _controller: "PruebaAppBundle:Trabajador:contratar" }
+    methods:  [GET, POST]

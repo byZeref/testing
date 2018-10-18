@@ -13,3 +13,7 @@ prueba_app_contacto:
 prueba_app_tipocontacto:
     resource: "@PruebaAppBundle/Resources/config/tipocontacto.yml"
     prefix:   /tipocontacto
+
+prueba_app_registro:
+    resource: "@PruebaAppBundle/Resources/config/registro.yml"
+    prefix:   /registro

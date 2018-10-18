@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} Trabajadores {% endblock %}
+{% block li_trabajadores %}class="active"{% endblock %}
 {% block body %}
     <h1>Datos del trabajador</h1>
 
@@ -10,18 +11,14 @@
             {{ form_row(form.ci) }} <br><br>
             {{ form_row(form.nombre) }} <br><br>
             {{ form_row(form.apellidos) }} <br><br>
+
         <h3>Contactos del trabajador</h3>
-        {#{{ form_row(form.contactos) }}#}
-        {#<ul class="cont" data-prototype="{{ form_widget(form.contactos.vars.prototype)|e('html_attr') }}">#}
+            {#{{ form_row(form.contactos) }}#}
             {% for contacto in form.contactos %}
-                {#{{ form_row(form.contactos.vars.prototype.contacto) }}#}
-                {#{{ form_row(form.contactos.vars.prototype.valor) }}#}
                 <div class="col-md-5">{{ form_row(contacto.contacto) }}</div>
                 <div class="col-md-7">{{ form_row(contacto.valor) }}</div><br><br>
             {% endfor %}
-        {#</ul>#}
 
-        {#<input type="submit" value="Create" class="btn btn-primary btn-block" />#}
         {{ form_end(form) }}
         <a class="btn btn-default btn-block" href="{{ path('trabajador_index') }}">Regresar a la lista</a>
     </div>

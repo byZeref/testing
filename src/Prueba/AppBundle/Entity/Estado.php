@@ -5,12 +5,12 @@ namespace Prueba\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TipoContacto
+ * Estado
  *
- * @ORM\Table(name="tipo_contacto")
- * @ORM\Entity(repositoryClass="Prueba\AppBundle\Repository\TipoContactoRepository")
+ * @ORM\Table(name="estado")
+ * @ORM\Entity(repositoryClass="Prueba\AppBundle\Repository\EstadoRepository")
  */
-class TipoContacto
+class Estado
 {
     /**
      * @var int
@@ -24,12 +24,12 @@ class TipoContacto
     /**
      * @var string
      *
-     * @ORM\Column(name="tipo", type="string", length=255)
+     * @ORM\Column(name="estado", type="string", length=255)
      */
-    private $tipo;
+    private $valor_estado;
 
     /**
-     * @ORM\OneToMany(targetEntity="Contacto", mappedBy="contacto")
+     * @ORM\OneToMany(targetEntity="Registro", mappedBy="estado")
      */
     private $trabajadores;
 
@@ -44,27 +44,27 @@ class TipoContacto
     }
 
     /**
-     * Set tipo
+     * Set estado
      *
-     * @param string $tipo
+     * @param string $valor_estado
      *
-     * @return TipoContacto
+     * @return Estado
      */
-    public function setTipo($tipo)
+    public function setValorEstado($valor_estado)
     {
-        $this->tipo = $tipo;
+        $this->valor_estado = $valor_estado;
     
         return $this;
     }
 
     /**
-     * Get tipo
+     * Get estado
      *
      * @return string
      */
-    public function getTipo()
+    public function getValorEstado()
     {
-        return $this->tipo;
+        return $this->valor_estado;
     }
     /**
      * Constructor
@@ -77,11 +77,11 @@ class TipoContacto
     /**
      * Add trabajadore
      *
-     * @param \Prueba\AppBundle\Entity\Contacto $trabajadore
+     * @param \Prueba\AppBundle\Entity\Registro $trabajadore
      *
-     * @return TipoContacto
+     * @return Estado
      */
-    public function addTrabajadore(\Prueba\AppBundle\Entity\Contacto $trabajadore)
+    public function addTrabajadore(\Prueba\AppBundle\Entity\Registro $trabajadore)
     {
         $this->trabajadores[] = $trabajadore;
     
@@ -91,9 +91,9 @@ class TipoContacto
     /**
      * Remove trabajadore
      *
-     * @param \Prueba\AppBundle\Entity\Contacto $trabajadore
+     * @param \Prueba\AppBundle\Entity\Registro $trabajadore
      */
-    public function removeTrabajadore(\Prueba\AppBundle\Entity\Contacto $trabajadore)
+    public function removeTrabajadore(\Prueba\AppBundle\Entity\Registro $trabajadore)
     {
         $this->trabajadores->removeElement($trabajadore);
     }
@@ -110,6 +110,6 @@ class TipoContacto
 
     public function __toString()
     {
-        return $this->tipo;
+        return $this->getValorEstado();
     }
 }

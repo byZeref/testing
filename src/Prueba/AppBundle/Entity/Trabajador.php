@@ -3,6 +3,7 @@
 namespace Prueba\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+//use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Trabajador
@@ -47,6 +48,10 @@ class Trabajador
      */
     private $contactos;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Registro", mappedBy="trabajador", cascade={"all"})
+     */
+    private $estado;
 
     /**
      * Get id
@@ -135,6 +140,7 @@ class Trabajador
     public function __construct()
     {
         $this->contactos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estado = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -174,5 +180,39 @@ class Trabajador
     public function __toString()
     {
         return $this->nombre . ' ' . $this->apellidos;
+    }
+
+    /**
+     * Add estado
+     *
+     * @param \Prueba\AppBundle\Entity\Registro $estado
+     *
+     * @return Trabajador
+     */
+    public function addEstado(\Prueba\AppBundle\Entity\Registro $estado)
+    {
+        $this->estado[] = $estado;
+    
+        return $this;
+    }
+
+    /**
+     * Remove estado
+     *
+     * @param \Prueba\AppBundle\Entity\Registro $estado
+     */
+    public function removeEstado(\Prueba\AppBundle\Entity\Registro $estado)
+    {
+        $this->estado->removeElement($estado);
+    }
+
+    /**
+     * Get estado
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEstado()
+    {
+        return $this->estado;
     }
 }
